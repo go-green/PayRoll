@@ -23,7 +23,7 @@ namespace PayRoll.Tests
 
             #region Act
 
-            var csvFileReader = new CSVFileReader(new StringReader(csvData));
+            var csvFileReader = new CsvReader(new StringReader(csvData));
             var records = csvFileReader.Read();
 
             #endregion
@@ -50,7 +50,7 @@ namespace PayRoll.Tests
 
             #region Act
 
-            var csvFileReader = new CSVFileReader(new StringReader(csvData));
+            var csvFileReader = new CsvReader(new StringReader(csvData));
             var records = csvFileReader.Read();
 
             #endregion
@@ -81,7 +81,7 @@ namespace PayRoll.Tests
 
             #region Act
 
-            var csvFileReader = new CSVFileReader(new StringReader(csvData));
+            var csvFileReader = new CsvReader(new StringReader(csvData));
             try
             {
                 csvFileReader.Read();
@@ -116,7 +116,7 @@ namespace PayRoll.Tests
 
             #region Act
 
-            var csvFileReader = new CSVFileReader(new StringReader(csvData));
+            var csvFileReader = new CsvReader(new StringReader(csvData));
             try
             {
                 csvFileReader.Read();
@@ -150,7 +150,7 @@ namespace PayRoll.Tests
 
             #region Act
 
-            var csvFileReader = new CSVFileReader(new StringReader(csvData));
+            var csvFileReader = new CsvReader(new StringReader(csvData));
             try
             {
                 csvFileReader.Read();

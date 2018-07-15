@@ -19,8 +19,7 @@ namespace PayRoll.Core.Tax
             if (!FallsUnderCurrentBand(amount)) return 0;
             var payAmountOverLowerLimit = GetPayAmountOverLowerLimit(amount);
             var rawIncomeTax = (FixedAmount + (payAmountOverLowerLimit * FixedRate)) / 12;
-            var roundedIncomeTax = Math.Round(rawIncomeTax, MidpointRounding.AwayFromZero);
-            return Convert.ToUInt32(roundedIncomeTax);
+            return Helper.GetRoundedAmount(rawIncomeTax);
         }
 
         protected bool FallsUnderCurrentBand(uint amount)

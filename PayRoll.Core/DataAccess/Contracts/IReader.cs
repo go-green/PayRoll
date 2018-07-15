@@ -4,8 +4,8 @@ using System.Text;
 
 namespace PayRoll.Core.DataAccess
 {
-    public interface IFileWritter
+    public interface IReader
     {
-        void Write(IEnumerable<PayDetails> payDetails);
+        IEnumerable<EmployeeDetails> Read();
     }
 }

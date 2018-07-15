@@ -15,10 +15,10 @@ namespace PayRoll.Program
         public override void Load()
         {
             var textWritter = File.CreateText($"PayDetails_{DateTime.Now:dd-MMM-yyyy}");
-            Bind<IFileWritter>().To<CSVFileWritter>().WithConstructorArgument("textWriter", textWritter);
+            Bind<IWritter>().To<CsvWritter>().WithConstructorArgument("textWriter", textWritter);
 
             var textReader = File.OpenText(@"SampleData\EmployeeDetails.csv");
-            Bind<IFileReader>().To<CSVFileReader>().WithConstructorArgument("textReader",textReader);
+            Bind<IReader>().To<CsvReader>().WithConstructorArgument("textReader",textReader);
 
             Bind<IFileProcessor>().To<TaxCalculationService>();
         }

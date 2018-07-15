@@ -15,11 +15,11 @@ namespace PayRoll.Core.Tax
     public class TaxCalculationService : IFileProcessor
     {
         private readonly IList<ITaxBase> _taxBands = new List<ITaxBase>();
-        private readonly IFileReader _reader;
-        private readonly IFileWritter _writter;
+        private readonly IReader _reader;
+        private readonly IWritter _writter;
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        public TaxCalculationService(IFileReader reader, IFileWritter writter)
+        public TaxCalculationService(IReader reader, IWritter writter)
         {
             _reader = reader;
             _writter = writter;
@@ -86,8 +86,7 @@ namespace PayRoll.Core.Tax
         private uint GetSuper(uint employeeAnnualSalary, int superRate)
         {
             var rawSuperAmount = GetGrossIncome(employeeAnnualSalary) * superRate;
-            var roundedSuperAmount = Math.Round((decimal)rawSuperAmount, MidpointRounding.AwayFromZero);
-            return Convert.ToUInt32(roundedSuperAmount);
+            return Helper.GetRoundedAmount(rawSuperAmount);
         }
 
         private uint GetNetIncome(uint employeeAnnualSalary)
@@ -98,8 +97,7 @@ namespace PayRoll.Core.Tax
         private uint GetGrossIncome(uint employeeAnnualSalary)
         {
             var rawMonthlySalary = employeeAnnualSalary / 12;
-            var roundedGrossIncome = Math.Round((decimal)rawMonthlySalary, MidpointRounding.AwayFromZero);
-            return Convert.ToUInt32(roundedGrossIncome);
+            return Helper.GetRoundedAmount(rawMonthlySalary);
         }
 
         private uint GetIncomeTax(uint employeeAnnualSalary)

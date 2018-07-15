@@ -9,12 +9,12 @@ using NLog;
 
 namespace PayRoll.Core.DataAccess
 {
-    public class CSVFileWritter : IFileWritter
+    public class CsvWritter : IWritter
     {
         private readonly TextWriter _textWriter;
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
-        public CSVFileWritter(TextWriter textWriter)
+        public CsvWritter(TextWriter textWriter)
         {
             _textWriter = textWriter;
         }

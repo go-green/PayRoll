@@ -54,12 +54,13 @@
     <Compile Include="DataAccess\CSVFileReader.cs" />
     <Compile Include="DataAccess\CSVFileWritter.cs" />
     <Compile Include="DataAccess\EmployeeDetails.cs" />
-    <Compile Include="DataAccess\Contracts\IFileReader.cs" />
-    <Compile Include="DataAccess\Contracts\IFileWritter.cs" />
+    <Compile Include="DataAccess\Contracts\IReader.cs" />
+    <Compile Include="DataAccess\Contracts\IWritter.cs" />
     <Compile Include="DataAccess\PayDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tax\Contracts\IFileProcessor.cs" />
     <Compile Include="Tax\Contracts\ITaxBase.cs" />
+    <Compile Include="Tax\Helper.cs" />
     <Compile Include="Tax\TaxBandFive.cs" />
     <Compile Include="Tax\TaxBandFour.cs" />
     <Compile Include="Tax\TaxBandOne.cs" />

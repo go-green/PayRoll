@@ -42,7 +42,7 @@ namespace PayRoll.Tests
             #endregion
 
             var textWritter = File.CreateText($"PayDetails_{DateTime.Now.ToString("dd-MMM-yyyy")}");
-            var csvFileWritter = new CSVFileWritter(textWritter);
+            var csvFileWritter = new CsvWritter(textWritter);
 
             #region Act
 

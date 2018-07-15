@@ -8,11 +8,11 @@ using NLog;
 
 namespace PayRoll.Core.DataAccess
 {
-    public class CSVFileReader : IFileReader
+    public class CsvReader : IReader
     {
         private readonly TextReader _textReader;
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        public CSVFileReader(TextReader textReader)
+        public CsvReader(TextReader textReader)
         {
             _textReader = textReader;
         }
@@ -21,7 +21,7 @@ namespace PayRoll.Core.DataAccess
             var records = new List<EmployeeDetails>();
             try
             {
-                using (var csvReader = new CsvReader(_textReader))
+                using (var csvReader = new CsvHelper.CsvReader(_textReader))
                 {
                     csvReader.Configuration.HasHeaderRecord = true;
                     records = csvReader.GetRecords<EmployeeDetails>().ToList();

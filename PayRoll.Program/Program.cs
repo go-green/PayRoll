@@ -26,7 +26,7 @@ namespace PayRoll.Program
             }
             else
             {
-                Console.WriteLine("Error Processing the file! Check the log file for more details");
+                Console.WriteLine("\n\nError Processing the file! Check the log file for more details");
                 Console.ReadLine();
             }
         }

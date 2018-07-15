@@ -30,6 +30,7 @@ namespace PayRoll.Core.DataAccess
             catch (Exception ex)
             {
                 _logger.Error(ex);
+                throw;
             }
             return records;
         }
